@@ -11,6 +11,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+
 declare var require: any;
 const Quill = require('quill');
 
@@ -42,9 +43,9 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
       ['blockquote', 'code-block'],
 
       [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
       [{ 'direction': 'rtl' }],                         // text direction
 
       [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
@@ -70,11 +71,14 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
   @Output() change: EventEmitter<any> = new EventEmitter();
 
   // ...
-  onModelChange: Function = () => {};
-  onModelTouched: Function = () => {};
+  onModelChange: Function = () => {
+  };
+  onModelTouched: Function = () => {
+  };
 
   // 注入Dom
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef) {
+  }
 
   // 视图加载完成后执行初始化
   ngAfterViewInit() {
